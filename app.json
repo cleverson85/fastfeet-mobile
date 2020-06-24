@@ -1,0 +1,17 @@
+{
+  "name": "fastfeetmobile",
+  "displayName": "fastfeetmobile",
+  "expo": {
+    "name": "fastfeetmobile",
+    "slug": "fastfeetmobile",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
