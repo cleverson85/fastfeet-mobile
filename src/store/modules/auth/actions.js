@@ -1,14 +1,14 @@
-export function loginRequest(id) {
+export function loginRequest(deliveryMan) {
   return {
     type: '@login/AUTH_REQUEST',
-    payload: { id },
+    payload: deliveryMan,
   };
 }
 
-export function loginSuccess(id) {
+export function loginSuccess(payload) {
   return {
     type: '@login/AUTH_SUCCESS',
-    payload: { id },
+    payload,
   };
 }
 

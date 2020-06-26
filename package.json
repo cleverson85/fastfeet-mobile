@@ -12,7 +12,6 @@
   "dependencies": {
     "@react-native-community/async-storage": "^1.10.0",
     "@react-native-community/masked-view": "^0.1.10",
-    "@react-native-firebase/app": "^7.3.0",
     "@react-navigation/bottom-tabs": "^5.3.3",
     "@react-navigation/native": "^5.2.3",
     "@react-navigation/stack": "^5.2.18",
@@ -21,7 +20,6 @@
     "axios": "^0.19.2",
     "date-fns": "^2.14.0",
     "immer": "^6.0.5",
-    "jetifier": "^1.6.6",
     "prop-types": "^15.7.2",
     "react": "16.11.0",
     "react-native": "0.62.2",
@@ -33,7 +31,6 @@
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.7.0",
     "react-native-step-indicator": "^0.0.11",
-    "react-native-unimodules": "^0.10.1",
     "react-native-vector-icons": "^6.6.0",
     "react-redux": "^7.2.0",
     "reactotron-react-native": "^5.0.0",

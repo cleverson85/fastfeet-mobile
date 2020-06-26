@@ -1,29 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { RectButton } from 'react-native-gesture-handler';
+import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { parseISO } from 'date-fns';
-import format from 'date-fns/format';
-import pt from 'date-fns/locale/pt';
 
 import Steps from '../Steps';
+import Info from '../Info';
 
-import {
-  Container,
-  Title,
-  Label,
-  Info,
-  Data,
-  DataInfo,
-  Header,
-  Details,
-} from './styles';
+import { Container, Title, Header } from './styles';
 
 const Order = ({ data }) => {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    setIndex(index + 1);
-  }, [index]);
+  const [detail, setData] = useState(1);
 
   return (
     <Container>
@@ -34,22 +18,10 @@ const Order = ({ data }) => {
           color="#7D40E7"
           style={{ marginRight: 5 }}
         />
-        <Title>Encomenda {index}</Title>
+        <Title>Encomenda 01</Title>
       </Header>
       <Steps data={data} />
-      <Info>
-        <Data>
-          <Label>Data</Label>
-          <DataInfo>{format(parseISO(data.created_at), 'dd/MM/yyyy')}</DataInfo>
-        </Data>
-        <Data>
-          <Label>Cidade</Label>
-          <DataInfo>{data.recipient.cidade}</DataInfo>
-        </Data>
-        <RectButton>
-          <Details>Ver Detalhes</Details>
-        </RectButton>
-      </Info>
+      <Info data={data} />
     </Container>
   );
 };

@@ -1,10 +1,18 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
+import util from '~/util/index';
+import { logOutRequest } from '~/store/modules/auth/actions';
 import Button from '~/components/Button';
-
 import { Container, Avatar, Info, Label, Name } from './styles';
 
-const User = ({ data }) => {
+const User = ({ route, navigation }) => {
+  const deliveryMan = useSelector((state) => state.auth.payload);
+
+  const handleLogOut = () => {
+    navigation.navigate('Login', { id: null });
+  };
+
   return (
     <Container>
       <Avatar
@@ -14,13 +22,18 @@ const User = ({ data }) => {
       />
       <Info>
         <Label>Nome completo</Label>
-        <Name>Cleverson queiroz</Name>
+        <Name>{deliveryMan.name}</Name>
         <Label>Email</Label>
-        <Name>cleverson85@gmail.com</Name>
+        <Name>{deliveryMan.email}</Name>
         <Label>Data de cadastro</Label>
-        <Name>02/03/1985</Name>
+        <Name>{util.FormatDate(deliveryMan.created_at)}</Name>
       </Info>
-      <Button style={{ backgroundColor: '#E74040' }} onPress={() => {}}>
+      <Button
+        style={{ backgroundColor: '#E74040' }}
+        onPress={() => {
+          handleLogOut();
+        }}
+      >
         Logout
       </Button>
     </Container>

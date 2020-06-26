@@ -6,8 +6,8 @@ import { loginSuccess, logOutSucess } from './actions';
 import api from '~/services/api';
 
 export function* authLogin({ payload }) {
-  const { id } = payload;
-  yield put(loginSuccess(id));
+  // const { id } = payload;
+  yield put(loginSuccess(payload));
 }
 
 export function* logOut() {

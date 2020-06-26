@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StatusBar,
   Image,
@@ -9,41 +9,32 @@ import {
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { useNavigation } from '@react-navigation/native';
-
 import { loginRequest } from '~/store/modules/auth/actions';
-
 import api from '~/services/api';
-
 import Input from '~/components/Input';
 import Button from '~/components/Button';
 import logo from '~/assets/logo.png';
 
 import { Container } from './styles';
 
-const Login = (props) => {
-  const [id, setId] = useState(0);
-  const idRef = useRef();
-  const navigation = useNavigation();
+const Login = ({ navigation, route }) => {
+  const [id, setId] = useState();
   const dispatch = useDispatch();
 
-  const idState = useSelector((state) => state.auth.id);
-
   useEffect(() => {
-    setId(idState);
-  }, [idState]);
+    setId(route.params?.id);
+  }, [route.params]);
 
   const handleSubmit = async () => {
-    setId(id === '' ? 0 : id);
     const response = await api.get(`/deliveryman/${id}/deliveries`);
     const { data } = response;
 
-    if (data.status === 401) {
+    if (data.status === 401 || !data) {
       Alert.alert('Erro', 'Usuário não encontrado.');
       return;
     }
 
-    dispatch(loginRequest(id));
+    dispatch(loginRequest(data[0]?.deliveryMan));
 
     navigation.navigate('Root', {
       screen: 'Main',
@@ -70,9 +61,8 @@ const Login = (props) => {
               keyboardType="numeric"
               placeholder="Informe seu ID de cadastro"
               returnKeyType="send"
-              ref={idRef}
               value={id}
-              onChangeText={setId}
+              onChangeText={(text) => setId(text)}
               onSubmitEditing={handleSubmit}
             />
             <Button

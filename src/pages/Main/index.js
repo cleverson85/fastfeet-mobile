@@ -13,18 +13,18 @@ import { Container, List } from './styles';
 const Main = ({ route, navigation }) => {
   const [orders, setOrders] = useState([]);
   const data = orders ? orders[0] : {};
-  const deliveryManId = useSelector((state) => state.auth.id);
+  const deliveryMan = useSelector((state) => state.auth.payload);
 
   useEffect(() => {
     async function handleUser() {
       const response = await api.get(
-        `/deliveryman/${deliveryManId}/deliveries`
+        `/deliveryman/${deliveryMan.id}/deliveries`
       );
       setOrders(response.data);
     }
 
     handleUser();
-  }, [deliveryManId]);
+  }, [deliveryMan]);
 
   return (
     <>

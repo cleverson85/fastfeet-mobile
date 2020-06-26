@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Login from '~/pages/Login';
+import Detail from '~/pages/Detail';
 import Main from '~/pages/Main';
 import User from '~/pages/User';
 
@@ -66,6 +67,7 @@ function Routes() {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Detail" component={Detail} />
         <Stack.Screen name="Root" component={Root} />
       </Stack.Navigator>
     </NavigationContainer>

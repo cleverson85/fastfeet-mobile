@@ -13,9 +13,8 @@ const Header = (props) => {
   const dispatch = useDispatch();
   const { info } = props;
 
-  const handlerLogOut = () => {
-    dispatch(logOutRequest());
-    navigation.navigate('Login');
+  const handleLogOut = () => {
+    navigation.navigate('Login', { id: null });
   };
 
   return (
@@ -34,7 +33,7 @@ const Header = (props) => {
 
       <TouchableOpacity
         onPress={() => {
-          handlerLogOut();
+          handleLogOut();
         }}
       >
         <Icon name="exit-to-app" size={30} color="#E74040" />
