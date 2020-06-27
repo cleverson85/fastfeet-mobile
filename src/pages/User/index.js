@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import util from '~/util/index';
-import { logOutRequest } from '~/store/modules/auth/actions';
 import Button from '~/components/Button';
 import { Container, Avatar, Info, Label, Name } from './styles';
 

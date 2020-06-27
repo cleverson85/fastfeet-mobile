@@ -20,7 +20,7 @@ export const Title = styled.Text`
   font-family: 'Roboto-Bold';
 `;
 
-export const InfoDetail = styled.View`
+export const Details = styled.View`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -41,7 +41,7 @@ export const DataInfo = styled.Text`
   font-family: 'Roboto-Bold';
 `;
 
-export const Details = styled.Text`
+export const Detail = styled.Text`
   font-size: 14px;
   font-family: 'Roboto-Bold';
   color: #7d40e7;

@@ -1,29 +1,64 @@
+/* eslint-disable react/jsx-no-bind */
 import React from 'react';
-import { TouchableOpacity, ActivityIndicator } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native';
 
-import { Container, Center, Header, Title } from './styles';
+import ButtonIcon from '../ButtonIcon/index';
+import { Container } from './styles';
 
 function Action(props) {
   const { data } = props;
+  const navigation = useNavigation();
+
+  const addProblem = () => {
+    navigation.navigate('Root', {
+      screen: 'Entregas',
+      params: {
+        screen: 'Erro',
+        params: { detail: data },
+      },
+    });
+  };
+
+  const viewProblem = () => {
+    navigation.navigate('Root', {
+      screen: 'Entregas',
+      params: {
+        screen: 'Display',
+        params: { detail: data },
+      },
+    });
+  };
+
+  const confirmDelivery = () => {
+    navigation.navigate('Root', {
+      screen: 'Entregas',
+      params: {
+        screen: 'Confirm',
+        params: { detail: data },
+      },
+    });
+  };
+
   return (
     <Container>
-      <Center>
-        <Icon name="highlight-off" size={30} color="#E74040" />
-        <Title>Informar Problema</Title>
-      </Center>
-      {/* <Center>
-        <TouchableOpacity onPress={() => {}}>
-          <Icon name="info" size={30} color="#E7BA40" />
-          <Title>Visualizar Problemas</Title>
-        </TouchableOpacity>
-      </Center>
-      <Center>
-        <TouchableOpacity onPress={() => {}}>
-          <Icon name="alarm-on" size={30} color="#7D40E7" />
-          <Title>Confirmar Entrega</Title>
-        </TouchableOpacity>
-      </Center> */}
+      <ButtonIcon
+        iconName="cancel"
+        iconColor="#E74040"
+        title="Informar Problema"
+        func={addProblem.bind(this)}
+      />
+      <ButtonIcon
+        iconName="info"
+        iconColor="#E7BA40"
+        title="Visualizar Problemas"
+        func={viewProblem.bind(this)}
+      />
+      <ButtonIcon
+        iconName="check-circle"
+        iconColor="#7D40E7"
+        title="Confirmar Entrega"
+        func={confirmDelivery.bind(this)}
+      />
     </Container>
   );
 }

@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
-import { useDispatch } from 'react-redux';
-import { logOutRequest } from '~/store/modules/auth/actions';
 
 import { Container, Left, Info, Label, Name, Avatar } from './styles';
 
 const Header = (props) => {
   const navigation = useNavigation();
-  const dispatch = useDispatch();
   const { info } = props;
 
   const handleLogOut = () => {

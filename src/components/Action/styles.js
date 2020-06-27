@@ -1,24 +1,16 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  /* flex-direction: row;
-  justify-content: space-around; */
-  /*justify-content: space-between; */
+  flex-direction: row;
+  background-color: #f8f9fd;
+  border-radius: 4px;
+  box-shadow: 10px 5px 5px black;
 `;
 
-export const Center = styled.View`
-  /* flex-direction: column;
-  text-align: center; */
-  /* align-items: center;
-  width: 100px; */
-`;
-
-export const Header = styled.View`
-  /* justify-content: space-between; */
-`;
-
-export const Title = styled.Text`
-  /* color: #999;
-  font-size: 12px;
-  font-family: 'Roboto-Regular'; */
+export const Background = styled.View`
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  width: 100%;
+  background-color: #7d40e7;
 `;

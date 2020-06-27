@@ -3,19 +3,23 @@ import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import util from '~/util/index';
 
-import { Label, InfoDetail, Data, DataInfo, Details } from './styles';
+import { Label, Details, Data, DataInfo, Detail } from './styles';
 
 function Info({ data }) {
   const navigation = useNavigation();
 
   const handleDetail = () => {
-    navigation.navigate('Detail', {
-      detail: data,
+    navigation.navigate('Root', {
+      screen: 'Entregas',
+      params: {
+        screen: 'Detail',
+        params: { detail: data },
+      },
     });
   };
 
   return (
-    <InfoDetail>
+    <Details>
       <Data>
         <Label>Data</Label>
         <DataInfo>{util.FormatDate(data.created_at)}</DataInfo>
@@ -25,15 +29,15 @@ function Info({ data }) {
         <DataInfo>{data.recipient.cidade}</DataInfo>
       </Data>
       <RectButton>
-        <Details
+        <Detail
           onPress={() => {
             handleDetail();
           }}
         >
           Ver Detalhes
-        </Details>
+        </Detail>
       </RectButton>
-    </InfoDetail>
+    </Details>
   );
 }
 
