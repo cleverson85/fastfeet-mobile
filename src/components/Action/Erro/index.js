@@ -16,9 +16,7 @@ function Erro() {
         <Container>
           <Button
             style={{ backgroundColor: '#7D40E7', width: '100%' }}
-            onPress={() => {
-              handleSubmit();
-            }}
+            onPress={() => {}}
           >
             Enviar
           </Button>
