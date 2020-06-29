@@ -3,9 +3,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Button } from 'react-native-elements';
 
 const ButtonIcon = (props) => {
-  const { iconName, iconColor, title, func } = props;
+  const { iconName, iconColor, title, method } = props;
+
   return (
-    <TouchableOpacity onPress={func}>
+    <TouchableOpacity onPress={method}>
       <Button
         icon={{
           name: iconName,

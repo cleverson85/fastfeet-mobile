@@ -1,3 +1,17 @@
+export function SetStatusRequest(status) {
+  return {
+    type: '@app/SET_STATUS_REQUEST',
+    payload: { status },
+  };
+}
+
+export function SetStatusSuccess(status) {
+  return {
+    type: '@app/SET_STATUS_SUCCESS',
+    payload: { status },
+  };
+}
+
 export function clearRequest() {
   return {
     type: '@app/CLEAR_STATE',

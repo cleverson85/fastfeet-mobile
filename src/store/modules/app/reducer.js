@@ -15,6 +15,16 @@ export default function app(state = INITIAL_STATE, action) {
         break;
       }
 
+      case '@app/ADD_ISSUE_SUCESS': {
+        draft.payload = action.payload;
+        break;
+      }
+
+      case '@app/SET_STATUS_SUCCESS': {
+        draft.payload = action.payload;
+        break;
+      }
+
       default:
     }
   });

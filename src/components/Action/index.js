@@ -9,31 +9,11 @@ function Action(props) {
   const { data } = props;
   const navigation = useNavigation();
 
-  const addProblem = () => {
+  const handleAction = (screen) => {
     navigation.navigate('Root', {
       screen: 'Entregas',
       params: {
-        screen: 'Erro',
-        params: { detail: data },
-      },
-    });
-  };
-
-  const viewProblem = () => {
-    navigation.navigate('Root', {
-      screen: 'Entregas',
-      params: {
-        screen: 'Display',
-        params: { detail: data },
-      },
-    });
-  };
-
-  const confirmDelivery = () => {
-    navigation.navigate('Root', {
-      screen: 'Entregas',
-      params: {
-        screen: 'Confirm',
+        screen,
         params: { detail: data },
       },
     });
@@ -45,19 +25,19 @@ function Action(props) {
         iconName="cancel"
         iconColor="#E74040"
         title="Informar Problema"
-        func={addProblem.bind(this)}
+        method={handleAction.bind(this, 'Erro')}
       />
       <ButtonIcon
         iconName="info"
         iconColor="#E7BA40"
         title="Visualizar Problemas"
-        func={viewProblem.bind(this)}
+        method={handleAction.bind(this, 'Display')}
       />
       <ButtonIcon
         iconName="check-circle"
         iconColor="#7D40E7"
         title="Confirmar Entrega"
-        func={confirmDelivery.bind(this)}
+        method={handleAction.bind(this, 'Confirm')}
       />
     </Container>
   );

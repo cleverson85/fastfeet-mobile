@@ -134,6 +134,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        missingDimensionStrategy 'react-native-camera', 'general'
     }
     splits {
         abi {
@@ -212,6 +213,13 @@ dependencies {
         releaseImplementation files(hermesPath + "hermes-release.aar")
     } else {
         implementation jscFlavor
+    }
+
+    compile (project(':react-native-camera')) {
+        exclude group: "com.google.android.gms"
+    }
+    compile ("com.google.android.gms:play-services-vision:10.2.0") {
+        force = true;
     }
 }
 

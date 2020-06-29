@@ -1,10 +1,27 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { View } from 'react-native';
 
-// import { Container } from './styles';
+import HeaderDetail from '~/components/HeaderDetail';
+import Button from '../../Button/index';
+import { Container } from '../../InfoDetail/styles';
+import { Background } from '../styles';
 
 function Confirm() {
-  return <Text>Works!!</Text>;
+  return (
+    <Background>
+      <HeaderDetail title="Confimar entrega" />
+      <View style={{ alignItems: 'center' }}>
+        <Container>
+          <Button
+            style={{ backgroundColor: '#7D40E7', width: '100%' }}
+            onPress={() => {}}
+          >
+            Enviar
+          </Button>
+        </Container>
+      </View>
+    </Background>
+  );
 }
 
 export default Confirm;

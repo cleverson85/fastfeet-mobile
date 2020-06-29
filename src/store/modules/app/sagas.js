@@ -1,3 +1,8 @@
-import { all, takeLatest } from 'redux-saga/effects';
+import { all, takeLatest, call, put } from 'redux-saga/effects';
+import { SetStatusSuccess } from './actions';
 
-export default all([]);
+export function SetStatusRequest({ payload }) {
+  put(SetStatusSuccess(payload));
+}
+
+export default all([takeLatest('@app/SET_STATUS_REQUEST', SetStatusRequest)]);

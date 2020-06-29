@@ -1,5 +1,3 @@
-import React from 'react';
-import { RectButton } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -23,14 +21,12 @@ export const Rigth = styled.View`
   align-items: center;
 `;
 
-export const Status = styled(RectButton)`
+export const Item = styled.View`
   margin: 5px;
+`;
+
+export const Status = styled.Text`
+  color: #999;
   font-size: 15px;
   font-family: 'Roboto-Bold';
-  color: #999;
-  text-decoration: underline;
-
-  &:focus {
-    color: #7d40e7;
-  }
 `;

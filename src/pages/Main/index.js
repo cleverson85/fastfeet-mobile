@@ -12,26 +12,26 @@ import { Container, List } from './styles';
 
 const Main = ({ route, navigation }) => {
   const [orders, setOrders] = useState([]);
-  const data = orders ? orders[0] : {};
   const deliveryMan = useSelector((state) => state.auth.payload);
 
-  useEffect(() => {
-    async function handleUser() {
-      const response = await api.get(
-        `/deliveryman/${deliveryMan.id}/deliveries`
-      );
-      setOrders(response.data);
-    }
+  async function handleUser(status) {
+    const response = await api.get(
+      `/deliveryman/${deliveryMan.id}/deliveries?status=${status}`
+    );
 
-    handleUser();
-  }, [deliveryMan]);
+    setOrders(response.data);
+  }
+
+  useEffect(() => {
+    handleUser('P');
+  }, []);
 
   return (
     <>
       <Container>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        <Header info={data?.deliveryMan} />
-        <Menu />
+        <Header deliveryMan={deliveryMan} />
+        <Menu method={handleUser} />
         <List
           data={orders}
           keyExtractor={(item) => String(item.id)}
