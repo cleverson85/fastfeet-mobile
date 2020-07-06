@@ -1,8 +1,21 @@
 import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { Container, Label, Rigth, Status, Item } from './styles';
+
+const styles = StyleSheet.create({
+  button: {
+    color: '#999',
+    fontSize: 15,
+    fontFamily: 'Roboto-Bold',
+  },
+  buttonPress: {
+    color: '#7d40e7',
+    fontSize: 15,
+    fontFamily: 'Roboto-Bold',
+    textDecorationLine: 'underline',
+  },
+});
 
 const Menu = (props) => {
   const [pressA, setPressA] = useState(true);
@@ -58,19 +71,5 @@ const Menu = (props) => {
     </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  button: {
-    color: '#999',
-    fontSize: 15,
-    fontFamily: 'Roboto-Bold',
-  },
-  buttonPress: {
-    color: '#7d40e7',
-    fontSize: 15,
-    fontFamily: 'Roboto-Bold',
-    textDecorationLine: 'underline',
-  },
-});
 
 export default Menu;

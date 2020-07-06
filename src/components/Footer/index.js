@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
-import { Container, Separator, Button, IconButton, Label } from './styles';
+
+import { Container, Button, IconButton, Label } from './styles';
 
 const Footer = ({ data }) => {
   const [focus, setFocus] = useState(false);

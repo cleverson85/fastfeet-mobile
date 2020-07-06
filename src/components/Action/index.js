@@ -3,11 +3,12 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 import ButtonIcon from '../ButtonIcon/index';
+
 import { Container } from './styles';
 
 function Action(props) {
-  const { data } = props;
   const navigation = useNavigation();
+  const { data } = props;
 
   const handleAction = (screen) => {
     navigation.navigate('Root', {
@@ -22,10 +23,15 @@ function Action(props) {
   return (
     <Container>
       <ButtonIcon
+        disabled
         iconName="cancel"
         iconColor="#E74040"
         title="Informar Problema"
-        method={handleAction.bind(this, 'Erro')}
+        method={
+          !data.start_date || data.end_date
+            ? null
+            : handleAction.bind(this, 'Erro')
+        }
       />
       <ButtonIcon
         iconName="info"
@@ -37,7 +43,11 @@ function Action(props) {
         iconName="check-circle"
         iconColor="#7D40E7"
         title="Confirmar Entrega"
-        method={handleAction.bind(this, 'Confirm')}
+        method={
+          !data.start_date || data.end_date
+            ? null
+            : handleAction.bind(this, 'Confirm')
+        }
       />
     </Container>
   );

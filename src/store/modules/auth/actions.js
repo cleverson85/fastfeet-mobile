@@ -1,7 +1,7 @@
-export function loginRequest(deliveryMan) {
+export function loginRequest(payload) {
   return {
     type: '@login/AUTH_REQUEST',
-    payload: deliveryMan,
+    payload,
   };
 }
 

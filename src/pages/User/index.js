@@ -1,14 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import util from '~/util/index';
 import Button from '~/components/Button';
-import { Container, Avatar, Info, Label, Name } from './styles';
+import { SendSignatureRequest } from '~/store/modules/app/actions';
+
+import { Avatar, Container, Info, Label, Name } from './styles';
 
 const User = ({ route, navigation }) => {
   const deliveryMan = useSelector((state) => state.auth.payload);
+  const dispatch = useDispatch();
 
   const handleLogOut = () => {
+    dispatch(SendSignatureRequest(null));
     navigation.navigate('Login', { id: null });
   };
 
@@ -16,7 +20,9 @@ const User = ({ route, navigation }) => {
     <Container>
       <Avatar
         source={{
-          uri: 'https://api.adorable.io/avatars/149/abott@adorable.png',
+          uri:
+            // deliveryMan?.avatar.url ||
+            'https://api.adorable.io/avatars/145/abott@adorable.png',
         }}
       />
       <Info>

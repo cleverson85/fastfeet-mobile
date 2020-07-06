@@ -1,7 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import util from '~/util/index';
+import Action from '~/components/Action';
 
 import {
   Container,
@@ -12,7 +14,6 @@ import {
   DataInfo,
   Space,
 } from './styles';
-import Action from '~/components/Action';
 
 function InfoDetail(props) {
   const { data } = props;

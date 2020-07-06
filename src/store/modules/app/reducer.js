@@ -25,6 +25,21 @@ export default function app(state = INITIAL_STATE, action) {
         break;
       }
 
+      case '@app/SEND_SIGNATURE': {
+        draft.payload = action.payload;
+        break;
+      }
+
+      case '@app/DELIVERY_END_SUCCESS': {
+        draft.payload = action.payload;
+        break;
+      }
+
+      case '@app/SEND_ERROR_SUCCESS': {
+        draft.payload = action.payload;
+        break;
+      }
+
       default:
     }
   });

@@ -36,6 +36,7 @@ function Root() {
           paddingTop: 10,
           paddingBottom: 10,
         },
+        keyboardHidesTabBar: true,
       }}
     >
       <Tab.Screen

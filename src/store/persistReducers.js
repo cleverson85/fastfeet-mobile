@@ -6,7 +6,7 @@ export default (reducers) => {
     {
       key: 'fasfeet',
       storage: AsyncStorage,
-      whitelist: ['auth', 'user'],
+      whitelist: ['auth', 'app'],
     },
     reducers
   );

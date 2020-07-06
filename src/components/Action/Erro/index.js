@@ -6,31 +6,34 @@ import {
   Platform,
   Alert,
 } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 import HeaderDetail from '~/components/HeaderDetail';
 import Button from '../../Button/index';
+import { SendErrorRequest } from '~/store/modules/app/actions';
+
 import { Container } from '../../InfoDetail/styles';
 import { Background } from '../styles';
 import { Text } from './styles';
 
 function Erro({ route, navigation }) {
   const [text, setText] = useState('');
+  const dispatch = useDispatch();
   const { detail } = route.params;
 
   const handleSubmit = () => {
-    fetch('http://192.168.0.6:5555/deliveryissues', {
-      method: 'POST',
-      body: JSON.stringify({ order_id: detail.id, description: text }),
-      headers: new Headers({
-        'Content-Type': 'application/json',
-      }),
-    })
-      .then((res) => res.json())
-      .catch((error) =>
-        Alert.alert('Aviso', 'Não foi possível enviar devido a um erro.')
-      )
-      .then((res) => Alert.alert('Aviso', 'Problema enviado com sucesso.'))
-      .then(() => navigation.goBack());
+    if (text === '') {
+      Alert.alert('Nenhuma descrição de problema foi informado.');
+      return;
+    }
+
+    if (text.length < 20) {
+      Alert.alert('A descrição do problema deve ter mais de 20 caracteres.');
+      return;
+    }
+
+    dispatch(SendErrorRequest({ order_id: detail.id, description: text }));
+    navigation.goBack();
   };
 
   return (

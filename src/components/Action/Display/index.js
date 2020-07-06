@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 
 import util from '~/util/index';
 import api from '~/services/api';
 import HeaderDetail from '~/components/HeaderDetail';
+
 import { Container } from '../../InfoDetail/styles';
 import { Background } from '../styles';
 import { List, Label, Row } from './styles';
@@ -37,11 +38,16 @@ function Display({ route, navigation }) {
       <HeaderDetail title="Visualizar problemas" />
       <View style={{ alignItems: 'center' }}>
         <Container>
-          <List
-            data={issues}
-            keyExtractor={({ item }) => item?.id}
-            renderItem={({ item }) => <Item itens={item} />}
-          />
+          <ScrollView
+            keyboardShouldPersistTaps="handled"
+            contentContainerStyle={{ flex: 1 }}
+          >
+            <List
+              data={issues}
+              keyExtractor={({ item }) => item?.id}
+              renderItem={({ item }) => <Item itens={item} />}
+            />
+          </ScrollView>
         </Container>
       </View>
     </Background>

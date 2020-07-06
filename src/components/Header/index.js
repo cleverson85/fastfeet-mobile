@@ -3,14 +3,19 @@ import { useNavigation, AppRegistry } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Avatar } from 'react-native-elements';
+import { useDispatch } from 'react-redux';
+
+import { SendSignatureRequest } from '~/store/modules/app/actions';
 
 import { Container, Left, Info, Label, Name } from './styles';
 
 const Header = (props) => {
   const [deliveryMan, setData] = useState();
+  const dispatch = useDispatch();
   const navigation = useNavigation();
 
   const handleLogOut = () => {
+    dispatch(SendSignatureRequest(null));
     navigation.navigate('Login', { id: null });
   };
 

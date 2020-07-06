@@ -12,29 +12,51 @@ export function SetStatusSuccess(status) {
   };
 }
 
-export function clearRequest() {
-  return {
-    type: '@app/CLEAR_STATE',
-  };
-}
-
-export function visibleRequest(visible) {
-  return {
-    type: '@button/IS_VISIBLE',
-    payload: { visible },
-  };
-}
-
-export function reload(payload) {
+export function Reload(payload) {
   return {
     type: '@app/RELOAD',
     payload,
   };
 }
 
-export function confirmRequest(open, id, messageConfirm, path) {
+export function SendSignatureRequest(data, id, foto, deliveryManId) {
   return {
-    type: '@app/APP_CONFIRM_REQUEST',
-    payload: { open, id, messageConfirm, path },
+    type: '@app/SEND_SIGNATURE_REQUEST',
+    payload: { data, id, foto, deliveryManId },
+  };
+}
+
+export function SendSignature(payload) {
+  return {
+    type: '@app/SEND_SIGNATURE',
+    payload,
+  };
+}
+
+export function SendDeliveryEnd(payload) {
+  return {
+    type: '@app/DELIVERY_END_REQUEST',
+    payload,
+  };
+}
+
+export function SendDeliveryEndSuccess(payload) {
+  return {
+    type: '@app/DELIVERY_END_SUCCESS',
+    payload,
+  };
+}
+
+export function SendErrorRequest({ order_id, description }) {
+  return {
+    type: '@app/SEND_ERROR_REQUEST',
+    payload: { order_id, description },
+  };
+}
+
+export function SendErrorSuccess(payload) {
+  return {
+    type: '@app/SEND_ERROR_SUCCESS',
+    payload,
   };
 }

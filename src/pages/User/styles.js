@@ -8,8 +8,8 @@ export const Container = styled.View`
 `;
 
 export const Avatar = styled.Image`
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 75px;
   margin-top: 100px;
 `;

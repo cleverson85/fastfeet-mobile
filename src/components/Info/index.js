@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+
 import util from '~/util/index';
 
 import { Label, Details, Data, DataInfo, Detail } from './styles';

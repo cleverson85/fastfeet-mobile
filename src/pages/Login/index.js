@@ -7,7 +7,7 @@ import {
   ScrollView,
   Alert,
 } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { loginRequest } from '~/store/modules/auth/actions';
 import api from '~/services/api';
@@ -26,15 +26,20 @@ const Login = ({ navigation, route }) => {
   }, [route.params]);
 
   const handleSubmit = async () => {
-    const response = await api.get(`/deliveryman/${id}/deliveries`);
+    if (typeof id === 'undefined') {
+      Alert.alert('Erro', 'ID de cadastro deve ser informado.');
+      return;
+    }
+
+    const response = await api.get(`/deliveryman/${id}`);
     const { data } = response;
 
-    if (data.status === 401 || !data) {
+    if (data?.status === 401 || !data) {
       Alert.alert('Erro', 'Usuário não encontrado.');
       return;
     }
 
-    dispatch(loginRequest(data[0]?.deliveryMan));
+    dispatch(loginRequest(data));
 
     navigation.navigate('Root', {
       screen: 'Main',

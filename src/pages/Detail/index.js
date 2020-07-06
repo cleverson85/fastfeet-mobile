@@ -3,6 +3,7 @@ import { StatusBar } from 'react-native';
 
 import HeaderDetail from '~/components/HeaderDetail';
 import InfoDetail from '~/components/InfoDetail';
+
 import { Container } from './styles';
 
 function Detail({ route, navigation }) {
